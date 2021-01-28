@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-	// Start is called before the first frame update
-	void Start()
+	private Controls controls;
+	void Awake()
 	{
+		controls = new Controls();
+		controls.Enable();
+		controls.Player.Move.performed += (x) => onMove(x.ReadValue<Vector2>());
+	}
 
+	private void onMove(Vector2 input){
+		Debug.Log(input);
 	}
 
 	// Update is called once per frame
