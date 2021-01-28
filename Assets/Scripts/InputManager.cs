@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(CharacterController))]
 public class InputManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class InputManager : MonoBehaviour
 	private CharacterController charController;
 	private Vector3 moveVelocity = Vector3.zero;
 	private Vector2 lookVelocity = Vector3.zero;
+
+	private Vector3 axisLimit = Vector3.one;
 	private bool canJump = true;
 
 	[SerializeField] private Transform head;
@@ -37,14 +40,14 @@ public class InputManager : MonoBehaviour
 
 	private void onMove(Vector2 input)
 	{
-		moveVelocity = new Vector3(input.x, moveVelocity.y, input.y);
+		moveVelocity = new Vector3(input.x * axisLimit.x, moveVelocity.y * axisLimit.y, input.y * axisLimit.z);
 	}
 
 	private void onJump()
 	{
 		if (canJump)
 		{
-			moveVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+			moveVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity) * axisLimit.y;
 			canJump = false;
 			//Animator Here
 		}
@@ -82,5 +85,9 @@ public class InputManager : MonoBehaviour
 			canJump = true;
 			//Jump Animator Here
 		}
+	}
+
+	public void moveOnAxis(bool x, bool y, bool z){
+		axisLimit = new Vector3(Convert.ToInt16(x),Convert.ToInt16(y),Convert.ToInt16(z));
 	}
 }

@@ -16,8 +16,8 @@ public class PerspectiveSwitcher : MonoBehaviour
 	private Camera cam;
 
 
+	public GameObject player;
 	public Transform orthoTransform, perspTransform;
-
 
 	void Start()
 	{
@@ -28,6 +28,8 @@ public class PerspectiveSwitcher : MonoBehaviour
 		perspective = Camera.main.projectionMatrix;
 		orthoOn = false;
 		cam = GetComponent<Camera>();
+
+		player = player ? player : GameObject.FindGameObjectWithTag("Player");
 	}
 
 	void Update()
@@ -37,12 +39,14 @@ public class PerspectiveSwitcher : MonoBehaviour
 			orthoOn = !orthoOn;
 			if (orthoOn)
 			{
+				player.GetComponent<InputManager>().moveOnAxis(true, true, false);
 				cam.transform.SetParent(orthoTransform);
 				BlendToMatrix(cam, ortho, .75f);
 				BlendToParent(cam, 4f);
 			}
 			else
 			{
+				player.GetComponent<InputManager>().moveOnAxis(true, true, true);
 				cam.transform.SetParent(perspTransform);
 				BlendToMatrix(cam, perspective, .75f);
 				BlendToParent(cam, 4f);
