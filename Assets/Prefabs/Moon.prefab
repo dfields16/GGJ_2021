@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5994899942453695474}
   - component: {fileID: 7351450253290889583}
-  - component: {fileID: 1877426322}
+  - component: {fileID: 1769110490}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -164,7 +164,7 @@ MonoBehaviour:
   - {x: -0.9165993, y: -2.1329982, z: 0}
   - {x: -1.8729591, y: -1.6371089, z: 0}
   - {x: -2.4928188, y: -0.3796746, z: 0}
---- !u!114 &1877426322
+--- !u!114 &1769110490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,11 +173,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5855063413021376430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4d0b341720081e46951b71a3c73987d, type: 3}
+  m_Script: {fileID: 11500000, guid: d0708694ce8d35a41b02120b5fcb3701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   decaySpeed: 0.01
-  growSpeed: 100
-  maxLight: 20
+  growSpeed: 80
+  maxLight: 40
   deadThreshold: 0.4
   growThreshold: 20
