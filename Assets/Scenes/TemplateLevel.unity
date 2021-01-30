@@ -1671,7 +1671,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moon
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1877426322, guid: 1a22498cfede91844b4e4ffafc3f6faf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a22498cfede91844b4e4ffafc3f6faf, type: 3}
 --- !u!4 &452324374 stripped
 Transform:
@@ -2485,6 +2486,29 @@ Transform:
   m_Father: {fileID: 891785391}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1769110488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5855063413021376430, guid: 1a22498cfede91844b4e4ffafc3f6faf,
+    type: 3}
+  m_PrefabInstance: {fileID: 452324373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1769110490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769110488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0708694ce8d35a41b02120b5fcb3701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decaySpeed: 0.01
+  growSpeed: 80
+  maxLight: 40
+  deadThreshold: 0.4
+  growThreshold: 20
 --- !u!1001 &1852841491
 PrefabInstance:
   m_ObjectHideFlags: 0
