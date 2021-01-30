@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
             // hold orb
 
-            Physics2D.queriesStartInColliders = false;
+            // Physics2D.queriesStartInColliders = false;
             hit = Physics2D.Raycast(transform.position, Vector3.right * transform.localScale.x, orbCollectionDistance);
             if(hit.collider && hit.collider.tag == "Orb"){
                 holdingOrb = true;
