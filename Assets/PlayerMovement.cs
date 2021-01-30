@@ -14,10 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 3f;
 
     public float runSpeed = 40f;
-
-    float horizontalMove = 0f;
-    // still figuring out jump
-    bool canJump = true;
     bool jump = false;
     bool crouch = false;
     bool flashlight = true;
