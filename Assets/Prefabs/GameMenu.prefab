@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 372141242410346012}
   - component: {fileID: 372141242410345987}
   - component: {fileID: 372141242410345986}
-  - component: {fileID: 372141242410346014}
+  - component: {fileID: 7334190137464064383}
   m_Layer: 5
   m_Name: GameMenu
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4095
---- !u!114 &372141242410346014
+--- !u!114 &7334190137464064383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,11 +111,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 372141242410345985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a0d616a23100c4599924dbc9929386, type: 3}
+  m_Script: {fileID: 11500000, guid: 92f2e0f8e63155c4294cc1b890c3c692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   message: {fileID: 372141242861780863}
-  menu: {fileID: 0}
   resumeBtn: {fileID: 372141244533381407}
   quitBtn: {fileID: 372141243372068028}
 --- !u!1 &372141242592180775
@@ -729,7 +728,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372141242410346014}
+      - m_Target: {fileID: 7334190137464064383}
         m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
         m_MethodName: closeWindow
         m_Mode: 1
@@ -996,7 +995,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372141242410346014}
+      - m_Target: {fileID: 7334190137464064383}
         m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
         m_MethodName: quit
         m_Mode: 1
@@ -1209,7 +1208,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372141242410346014}
+      - m_Target: {fileID: 7334190137464064383}
         m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
         m_MethodName: goToMainMenu
         m_Mode: 1
@@ -1342,7 +1341,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372141242410346014}
+      - m_Target: {fileID: 7334190137464064383}
         m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
         m_MethodName: closeWindow
         m_Mode: 1
