@@ -13,6 +13,8 @@ public class GoopEnemy : MonoBehaviour
 
 	private float distanceToGround;
 
+	[SerializeField] private float agroDistance = 8f;
+	private bool agro = false;
 	private bool isGrounded;
 
 	public float currLightTimer = 0;
@@ -25,27 +27,30 @@ public class GoopEnemy : MonoBehaviour
 
 	void Update()
 	{
-
-		if (inLight)
-		{
-			if (isGrounded)
+		if(!agro && Vector2.Distance(player.transform.position, transform.position) < agroDistance){
+			agro = true;
+		}else{
+			if (inLight)
 			{
-				rb.velocity = new Vector2(rb.velocity.x, 0);
-				rb.AddForce(((Vector2)(-1 * (player.transform.position - transform.position).normalized) + (Vector2.up)) * jumpForce);
+				if (isGrounded)
+				{
+					rb.velocity = new Vector2(rb.velocity.x, 0);
+					rb.AddForce(((Vector2)(-1 * (player.transform.position - transform.position).normalized) + (Vector2.up)) * jumpForce);
+				}
+				currLightTimer -= Time.deltaTime;
 			}
-			currLightTimer -= Time.deltaTime;
-		}
-		else
-		{
-			if (isGrounded)
+			else
 			{
-				rb.velocity = new Vector2(rb.velocity.x, 0);
-				rb.AddForce(((Vector2)((player.transform.position - transform.position).normalized) + (Vector2.up)) * jumpForce);
+				if (isGrounded)
+				{
+					rb.velocity = new Vector2(rb.velocity.x, 0);
+					rb.AddForce(((Vector2)((player.transform.position - transform.position).normalized) + (Vector2.up)) * jumpForce);
+				}
 			}
-		}
 
-		if(currLightTimer < 0){
-			inLight = false;
+			if(currLightTimer < 0){
+				inLight = false;
+			}
 		}
 	}
 
