@@ -137,6 +137,9 @@ public class CharacterController2D : MonoBehaviour
         m_flashlight.SetActive(flashlightOn);
     }
 
+    public bool isGrounded(){
+        return m_Grounded;
+    }
 
 	private void Flip()
 	{
