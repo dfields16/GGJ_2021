@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 3589323780193508407}
   - component: {fileID: 3589323780193508405}
   - component: {fileID: 3589323780193506248}
-  - component: {fileID: 8168813875503104784}
+  - component: {fileID: 6239630962890488251}
+  - component: {fileID: 17308434}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -163,7 +164,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.43}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8168813875503104784
+--- !u!114 &6239630962890488251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3589323780193506251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5383a59b7a17b64d89565fc116c0358, type: 3}
+  m_Script: {fileID: 11500000, guid: 37013e02cf4bd4ec8994eedc9d8f925c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller2D: {fileID: 0}
@@ -180,9 +181,30 @@ MonoBehaviour:
   runSpeed: 40
   orbCollectionDistance: 1
   holdPoint: {fileID: 621181224}
-  DestructionEffect: {fileID: 5769731233828286725, guid: e39bc3470d199c447a01628512723960,
+  DestructionEffect: {fileID: 5769731233828286725, guid: 60bf1f5dde7af429994f95eacb7179c8,
     type: 3}
-  pauseMenu: {fileID: 372141242410345985, guid: 4e3cd8d04b7635f4f91cc67b5a005303,
+  pauseMenu: {fileID: 372141242410345985, guid: e6f6199002d7d4ba5934e8a97c2a73cb,
+    type: 3}
+--- !u!114 &17308434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589323780193506251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37013e02cf4bd4ec8994eedc9d8f925c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller2D: {fileID: 0}
+  jumpHeight: 3
+  runSpeed: 40
+  orbCollectionDistance: 1
+  holdPoint: {fileID: 621181224}
+  DestructionEffect: {fileID: 5769731233828286725, guid: 60bf1f5dde7af429994f95eacb7179c8,
+    type: 3}
+  pauseMenu: {fileID: 372141242410345985, guid: e6f6199002d7d4ba5934e8a97c2a73cb,
     type: 3}
 --- !u!1 &3589323781366494563
 GameObject:
