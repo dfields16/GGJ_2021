@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - GenerateShadowCasters
+  - Orb
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - Targets
   - Platforms
   - Enemies
-  - 
-  - 
-  - 
+  - Player
+  - Collectable
+  - Orb
   - 
   - 
   - 

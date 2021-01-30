@@ -57,6 +57,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Grab"",
+                    ""type"": ""Button"",
+                    ""id"": ""26081e9c-9f6b-4972-ae75-c7b64585177f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -191,6 +199,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""ToggleFlashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3b455bf-e21f-4f8a-ad38-89feaea0d974"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c34a9273-6f17-4f27-947c-75568feea77b"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -204,6 +234,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_ToggleFlashlight = m_Player.FindAction("ToggleFlashlight", throwIfNotFound: true);
+        m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -258,6 +289,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_ToggleFlashlight;
+    private readonly InputAction m_Player_Grab;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -267,6 +299,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @ToggleFlashlight => m_Wrapper.m_Player_ToggleFlashlight;
+        public InputAction @Grab => m_Wrapper.m_Player_Grab;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -291,6 +324,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @ToggleFlashlight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFlashlight;
                 @ToggleFlashlight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFlashlight;
                 @ToggleFlashlight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFlashlight;
+                @Grab.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
+                @Grab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
+                @Grab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -310,6 +346,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @ToggleFlashlight.started += instance.OnToggleFlashlight;
                 @ToggleFlashlight.performed += instance.OnToggleFlashlight;
                 @ToggleFlashlight.canceled += instance.OnToggleFlashlight;
+                @Grab.started += instance.OnGrab;
+                @Grab.performed += instance.OnGrab;
+                @Grab.canceled += instance.OnGrab;
             }
         }
     }
@@ -321,5 +360,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnToggleFlashlight(InputAction.CallbackContext context);
+        void OnGrab(InputAction.CallbackContext context);
     }
 }

@@ -16,7 +16,14 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f;
     bool jump = false;
     bool crouch = false;
-    bool flashlight = true;
+    bool flashlight = false;
+
+    // Grab variables
+    bool holdingOrb = false;
+    RaycastHit2D hit;
+    public float orbCollectionDistance = 1f;
+    public Transform holdPoint;
+    public ParticleSystem DestructionEffect;
 
     void Awake()
 	{
@@ -32,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         // TODO how to do only while holding?
         // controls.Player.Crouch.perform += (x) => onCrouch();
         controls.Player.ToggleFlashlight.performed += (x) => onToggleFlashlight();
+        controls.Player.Grab.performed += (x) => onGrab();
 
 	}
 
@@ -52,7 +60,27 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void onToggleFlashlight(){
-        flashlight = !flashlight;
+        if(holdingOrb){
+            flashlight = true;
+            ParticleSystem explosionEffect = Instantiate(DestructionEffect) as ParticleSystem;
+            explosionEffect.transform.position = hit.collider.gameObject.transform.position;
+            explosionEffect.loop = false;
+            explosionEffect.Play();
+            Destroy(hit.collider.gameObject, 0.2f);
+        }
+    }
+
+    private void onGrab(){
+        if(!holdingOrb){
+
+            // hold orb
+
+            Physics2D.queriesStartInColliders = false;
+            hit = Physics2D.Raycast(transform.position, Vector3.right * transform.localScale.x, orbCollectionDistance);
+            if(hit.collider && hit.collider.tag == "Orb"){
+                holdingOrb = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -60,6 +88,9 @@ public class PlayerMovement : MonoBehaviour
     {
         PerformMove();
         // PerformLook();
+        if(holdingOrb){
+            hit.collider.gameObject.transform.position = holdPoint.position;
+        }
     }
 
     void PerformMove(){
