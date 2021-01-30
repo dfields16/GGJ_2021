@@ -11,6 +11,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+    [SerializeField] private GameObject m_flashlight;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -132,6 +133,13 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+    public void Flashlight(bool flashlightOn){
+        m_flashlight.SetActive(flashlightOn);
+    }
+
+    public bool isGrounded(){
+        return m_Grounded;
+    }
 
 	private void Flip()
 	{
