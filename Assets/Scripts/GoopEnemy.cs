@@ -29,7 +29,7 @@ public class GoopEnemy : MonoBehaviour
 	{
 		if(!agro && Vector2.Distance(player.transform.position, transform.position) < agroDistance){
 			agro = true;
-		}else{
+		}else if(agro){
 			if (inLight)
 			{
 				if (isGrounded)
