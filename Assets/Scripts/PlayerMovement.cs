@@ -111,8 +111,8 @@ public class PlayerMovement : MonoBehaviour
         // Move our character
 
         controller2D.Move(moveVelocity.x * runSpeed * Time.fixedDeltaTime, crouch, jump);
-        controller2D.Flashlight(flashlight);
-        
+      //   controller2D.FlashlightRefresh(flashlight);
+
         jump = false;
     }
 }

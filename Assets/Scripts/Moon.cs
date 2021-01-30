@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 public class Moon : MonoBehaviour
 {
-	Light2D light;
+	Light2D light2D;
 	public float decaySpeed;
 	public float growSpeed;
 	public float maxLight;
@@ -16,7 +16,7 @@ public class Moon : MonoBehaviour
 
 	void Start()
 	{
-		light = GetComponent<Light2D>();
+		light2D = GetComponent<Light2D>();
 	}
 
 	// Update is called once per frame
@@ -24,18 +24,18 @@ public class Moon : MonoBehaviour
 	{
 		if(isDying){
 			if(isDying2){
-				light.intensity -= Time.deltaTime * growSpeed * 2;
+				light2D.intensity -= Time.deltaTime * growSpeed * 2;
 			}else{
-				light.intensity += Time.deltaTime * growSpeed;
-				if(light.intensity > growThreshold){
+				light2D.intensity += Time.deltaTime * growSpeed;
+				if(light2D.intensity > growThreshold){
 					isDying2 = true;
 				}
 			}
 		}else{
-			if(light.intensity < deadThreshold){
+			if(light2D.intensity < deadThreshold){
 				isDying = true;
 			}else{
-				light.intensity -= Time.deltaTime * decaySpeed;
+				light2D.intensity -= Time.deltaTime * decaySpeed;
 			}
 		}
 	}
