@@ -1069,21 +1069,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3589323780193506251, guid: 55e35256ddd7049eebd8b1e812cef210,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 3589323780193508407, guid: 55e35256ddd7049eebd8b1e812cef210,
         type: 3}
       propertyPath: m_flashlight
       value: 
       objectReference: {fileID: 1544966655}
-    - target: {fileID: 3589323780193508407, guid: 55e35256ddd7049eebd8b1e812cef210,
-        type: 3}
-      propertyPath: m_WhatIsGround.m_Bits
-      value: 320
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55e35256ddd7049eebd8b1e812cef210, type: 3}
 --- !u!4 &1299830234 stripped
