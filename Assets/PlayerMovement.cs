@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
+    bool flashlight = false;
 
     // Update is called once per frame
     void Update()
@@ -27,11 +28,16 @@ public class PlayerMovement : MonoBehaviour
         } else if (Input.GetButtonUp("Crouch")){
             crouch = false;
         }
+
+        if(Input.GetMouseButtonDown(0)){
+            flashlight = !flashlight;
+        }
     }
 
     void FixedUpdate(){
         // Move our character
         controller2D.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller2D.Flashlight(flashlight);
         jump = false;
     }
 }
