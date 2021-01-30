@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1171496114355595900}
   - component: {fileID: 1171496114355595901}
   - component: {fileID: 209196007}
-  - component: {fileID: 209196011}
   - component: {fileID: 1425427058}
+  - component: {fileID: 1007932694}
   m_Layer: 12
   m_Name: Orb
   m_TagString: Orb
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2271432330701483810, guid: ad72a4f8b14d4a149a78e8460409c905,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -153,19 +153,6 @@ MonoBehaviour:
   - {x: -0.4649148, y: 0.6066141, z: 0.00000017881393}
   - {x: -3.3167028, y: 1.734065, z: 0.00000017881393}
   - {x: -0.65474844, y: 0.1241827, z: 0}
---- !u!114 &209196011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1171496114355595902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1dbea9ce9a17843923f0e28fe19258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 50
 --- !u!58 &1425427058
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -182,3 +169,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.645
+--- !u!114 &1007932694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171496114355595902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade96bfffdfc8e94a8727911e3d9d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
