@@ -58,69 +58,61 @@ public class PlayerMovement : MonoBehaviour
 
 	}
 
-	private void onMove(Vector2 input)
-	{
-		moveVelocity = new Vector3(input.x * axisLimit.x, moveVelocity.y * axisLimit.y, 0f);
-	}
+    private void onMove(Vector2 input){
+        moveVelocity = new Vector3(input.x * axisLimit.x, moveVelocity.y * axisLimit.y, 0f);
+    }
 
-	private void onJump()
-	{
-		jump = true;
-	}
+    private void onJump(){
+        jump = true;
+    }
 
-	private void onCrouch()
-	{
-		crouch = true;
-	}
+    private void onCrouch(){
+        crouch = true;
+    }
 
-	private void onToggleFlashlight()
-	{
-		if (holdingOrb)
-		{
-			flashlight = true;
-			ParticleSystem explosionEffect = Instantiate(DestructionEffect) as ParticleSystem;
-			explosionEffect.transform.position = hit.collider.gameObject.transform.position;
-			explosionEffect.loop = false;
-			explosionEffect.Play();
-			Destroy(hit.collider.gameObject, 0.2f);
-		}
-	}
+    private void onToggleFlashlight(){
+        if(holdingOrb){
+            flashlight = true;
+            ParticleSystem explosionEffect = Instantiate(DestructionEffect) as ParticleSystem;
+            explosionEffect.transform.position = hit.collider.gameObject.transform.position;
+            explosionEffect.loop = false;
+            explosionEffect.Play();
+            Destroy(hit.collider.gameObject, 0.2f);
+            holdingOrb = false;
 
-	private void onGrab()
-	{
-		if (!holdingOrb)
-		{
+            controller2D.FlashlightRefresh();
+        }
+    }
 
-			// hold orb
+    private void onGrab(){
+        if(!holdingOrb){
 
-			Physics2D.queriesStartInColliders = false;
-			hit = Physics2D.Raycast(transform.position, Vector3.right * transform.localScale.x, orbCollectionDistance);
-			if (hit.collider && hit.collider.tag == "Orb")
-			{
-				holdingOrb = true;
-			}
-		}
-	}
+            // hold orb
 
-	// Update is called once per frame
-	void Update()
-	{
-		PerformMove();
-		// PerformLook();
-		if (holdingOrb)
-		{
-			hit.collider.gameObject.transform.position = holdPoint.position;
-		}
-	}
+            Physics2D.queriesStartInColliders = false;
+            hit = Physics2D.Raycast(transform.position, Vector3.right * transform.localScale.x, orbCollectionDistance);
+            if(hit.collider && hit.collider.tag == "Orb"){
+                holdingOrb = true;
+            }
+        }
+    }
 
-	void PerformMove()
-	{
-		// Move our character
+    // Update is called once per frame
+    void Update()
+    {
+        PerformMove();
+        // PerformLook();
+        if(holdingOrb){
+            hit.collider.gameObject.transform.position = holdPoint.position;
+        }
+    }
 
-		Debug.Log("MOVE VELOCITY: " + moveVelocity);
-		controller2D.Move(moveVelocity.x * runSpeed * Time.fixedDeltaTime, crouch, jump);
-		controller2D.Flashlight(flashlight);
+    void PerformMove(){
+        // Move our character
 
-		jump = false;
-	}
+        controller2D.Move(moveVelocity.x * runSpeed * Time.fixedDeltaTime, crouch, jump);
+        controller2D.Flashlight(flashlight);
+        
+        jump = false;
+    }
 }

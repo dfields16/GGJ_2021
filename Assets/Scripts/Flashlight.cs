@@ -1,12 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Flashlight : MonoBehaviour
 {
 	public Transform[] hitPts;
 	public LayerMask layerMask;
 	public float hitDistance = 3f;
+	float tempHitDistance;
+
+	// burnout
+	Light2D light;
+    public float startIntensity = 1f;
+    public float decaySpeed = 0.1f;
+
+
+	// Start is called before the first frame update
+    void Start()
+    {
+        light = GetComponent<Light2D>();
+    }
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -22,5 +37,17 @@ public class Flashlight : MonoBehaviour
 				}
 			}
 		}
+
+		if(light.intensity > 0f){
+            light.intensity -= Time.deltaTime * decaySpeed;
+        } else if(light.intensity == 0f){
+			tempHitDistance = hitDistance;
+			hitDistance = 0f;
+		}
 	}
+
+	public void Refresh(){
+        light.intensity = startIntensity;
+		hitDistance = tempHitDistance;
+    }
 }

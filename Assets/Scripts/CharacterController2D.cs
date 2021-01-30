@@ -137,6 +137,10 @@ public class CharacterController2D : MonoBehaviour
         m_flashlight.SetActive(flashlightOn);
     }
 
+    public void FlashlightRefresh(){
+        m_flashlight.GetComponent<Flashlight>().Refresh();
+    }
+
     public bool isGrounded(){
         return m_Grounded;
     }
