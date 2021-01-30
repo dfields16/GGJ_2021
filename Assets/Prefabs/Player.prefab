@@ -82,6 +82,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 3589323781511069526}
   m_CeilingCheck: {fileID: 3589323781473658912}
   m_CrouchDisableCollider: {fileID: 3589323780193508405}
+  m_flashlight: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -101,7 +102,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller2D: {fileID: 3589323780193508407}
+  jumpHeight: 3
   runSpeed: 40
+  orbCollectionDistance: 1
+  holdPoint: {fileID: 0}
+  DestructionEffect: {fileID: 0}
+  pauseMenu: {fileID: 372141242410345985, guid: 4e3cd8d04b7635f4f91cc67b5a005303,
+    type: 3}
 --- !u!61 &3589323780193508405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -214,7 +221,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -9095717837082945937, guid: 34587324d412940a79d530020c957dc0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -65,6 +65,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Value"",
+                    ""id"": ""c556fbcf-ef9d-4079-a44b-d9b9d178dd8f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -221,6 +229,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Grab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9cfa1c73-c10f-4803-822f-badb7e4da413"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -235,6 +254,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_ToggleFlashlight = m_Player.FindAction("ToggleFlashlight", throwIfNotFound: true);
         m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -290,6 +310,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_ToggleFlashlight;
     private readonly InputAction m_Player_Grab;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -300,6 +321,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @ToggleFlashlight => m_Wrapper.m_Player_ToggleFlashlight;
         public InputAction @Grab => m_Wrapper.m_Player_Grab;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -327,6 +349,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Grab.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
                 @Grab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
                 @Grab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -349,6 +374,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Grab.started += instance.OnGrab;
                 @Grab.performed += instance.OnGrab;
                 @Grab.canceled += instance.OnGrab;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -361,5 +389,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnToggleFlashlight(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

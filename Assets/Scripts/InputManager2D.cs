@@ -20,6 +20,7 @@ public class InputManager2D : MonoBehaviour
 	public float jumpHeight = 3f;
 	public float gravity = -9.8f;
 
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,6 +34,8 @@ public class InputManager2D : MonoBehaviour
 		controls.Player.Look.canceled += (x) => onLook(Vector2.zero);
 		controls.Player.Jump.performed += (x) => onJump();
     }
+
+
 
     private void onLook(Vector2 lookAxis)
 	{
@@ -82,7 +85,7 @@ public class InputManager2D : MonoBehaviour
 		charController.Move(right.normalized * moveVelocity.x * moveSpeed * deltaTime);
 
 		//Jump
-		moveVelocity.y += gravity * deltaTime; 
+		moveVelocity.y += gravity * deltaTime;
 		charController.Move(moveVelocity * deltaTime);
 		if (charController.isGrounded && moveVelocity.y < 0)
 		{
