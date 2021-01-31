@@ -132,7 +132,9 @@ public class PlayerMovement : MonoBehaviour
 
     void PerformMove(){
         // Move our character
-
+			if(moveVelocity.x != 0 && controller2D.isGrounded()) {
+				AudioManager.PlayFootstepAudio();
+			}
         controller2D.Move(moveVelocity.x * runSpeed * Time.fixedDeltaTime, crouch, jump);
       //   controller2D.FlashlightRefresh(flashlight);
 

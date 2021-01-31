@@ -49,13 +49,14 @@ MonoBehaviour:
   deathStingClip: {fileID: 0}
   winStingClip: {fileID: 0}
   orbStingClip: {fileID: 0}
-  walkStepClips: []
+  walkStepClips:
+  - {fileID: 8300000, guid: 41b4832dac72bad4d806a2381f6cbbc4, type: 3}
   crouchStepClips: []
   deathClip: {fileID: 0}
   jumpClip: {fileID: 0}
   jumpVoiceClip: {fileID: 0}
   deathVoiceClip: {fileID: 0}
-  orbVoiceClip: {fileID: 0}
+  orbVoiceClip: {fileID: 8300000, guid: 9add4603d299a4d43906711265af3033, type: 3}
   winVoiceClip: {fileID: 0}
   ambientGroup: {fileID: 0}
   musicGroup: {fileID: 0}
