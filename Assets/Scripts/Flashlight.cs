@@ -16,6 +16,8 @@ public class Flashlight : MonoBehaviour
 	public float decaySpeed = 0.1f;
 
 	public float scareTime = 3f;
+	public ParticleSystem DestructionEffect;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -39,6 +41,14 @@ public class Flashlight : MonoBehaviour
 				{
 					enemy.inLight = true;
 					enemy.currLightTimer = scareTime;
+					h.collider.gameObject.transform.localScale = h.collider.gameObject.transform.localScale / 1.5f;
+
+					ParticleSystem explosionEffect = Instantiate(DestructionEffect) as ParticleSystem;
+					explosionEffect.transform.position = h.collider.gameObject.transform.position;
+					explosionEffect.loop = false;
+
+					explosionEffect.Play();
+					Destroy(h.collider.gameObject, 5f);
 				}
 			}
 		}
