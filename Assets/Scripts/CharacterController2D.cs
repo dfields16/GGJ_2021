@@ -14,6 +14,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private GameObject m_flashlight;
 	[SerializeField] private GameObject m_arm;
 	[SerializeField] private float armDelta;
+	[SerializeField] private FollowObject followObj;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -72,7 +73,6 @@ public class CharacterController2D : MonoBehaviour
 		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 		m_arm.transform.rotation = q;
 
-		Debug.Log(targ.x < transform.position.x);
 		if(targ.x < transform.position.x && transform.localScale.x > 0){
 			Flip();
 		}
@@ -174,5 +174,8 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+
+
+		if(followObj) followObj.useOffset = !followObj.useOffset;
 	}
 }
