@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class OrbTrigger : MonoBehaviour
 {
-    OrbPathing orbPathing;
+    public OrbPathing orbPathing;
+    public Transform nextPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        orbPathing = FindObjectOfType<OrbPathing>();
+        if (!orbPathing) orbPathing = FindObjectOfType<OrbPathing>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            orbPathing.MakeOrbReady();
+            orbPathing.MarkNextWaypoint(nextPosition);
             Destroy(gameObject);
         }
     }
