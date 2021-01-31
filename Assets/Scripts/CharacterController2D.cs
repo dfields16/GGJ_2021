@@ -14,6 +14,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private GameObject m_flashlight;
 	[SerializeField] private GameObject m_arm;
 	[SerializeField] private float armDelta;
+	[SerializeField] private FollowObject followObj;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -71,6 +72,14 @@ public class CharacterController2D : MonoBehaviour
 		if(transform.localScale.x < 0) angle += 220;
 		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 		m_arm.transform.rotation = q;
+
+		if(targ.x < transform.position.x && transform.localScale.x > 0){
+			Flip();
+		}
+
+		if(targ.x > transform.position.x && transform.localScale.x < 0){
+			Flip();
+		}
 	}
 
 
@@ -124,18 +133,18 @@ public class CharacterController2D : MonoBehaviour
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-			// If the input is moving the player right and the player is facing left...
-			if (move > 0 && !m_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
-			}
-			// Otherwise if the input is moving the player left and the player is facing right...
-			else if (move < 0 && m_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
-			}
+			// // If the input is moving the player right and the player is facing left...
+			// if (move > 0 && !m_FacingRight)
+			// {
+			// 	// ... flip the player.
+			// 	Flip();
+			// }
+			// // Otherwise if the input is moving the player left and the player is facing right...
+			// else if (move < 0 && m_FacingRight)
+			// {
+			// 	// ... flip the player.
+			// 	Flip();
+			// }
 		}
 		// If the player should jump...
 		if (m_Grounded && jump)
@@ -165,5 +174,8 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+
+
+		if(followObj) followObj.useOffset = !followObj.useOffset;
 	}
 }

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0708694ce8d35a41b02120b5fcb3701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decaySpeed: 0.01
+  decaySpeed: 0.015
   growSpeed: 80
   maxLight: 40
   deadThreshold: 0.4
