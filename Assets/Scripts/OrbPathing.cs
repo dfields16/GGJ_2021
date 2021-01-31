@@ -20,6 +20,7 @@ public class OrbPathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		 if(!targetTransform) return;
         if (transform.position != targetTransform.position)
         {
             var targetPosition = targetTransform.position;
