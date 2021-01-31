@@ -32,7 +32,7 @@ public class BatController : Enemy
 	// Update is called once per frame
 	void Update()
 	{
-		if(isBatTrigger) return;
+		if (isBatTrigger) return;
 		Vector2 pos = transform.position;
 		RaycastHit2D hit = Physics2D.Raycast(pos, ((Vector2)player.transform.position - pos), Vector2.Distance(pos, player.transform.position), diveLayers);
 		if (agro && !hit)
@@ -41,14 +41,17 @@ public class BatController : Enemy
 			targ.z = 0f;
 			targ = targ - (Vector3)pos;
 			float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
-			if(inLight){
+			if (inLight)
+			{
 				angle = angle + 180;
 				Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 				transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * flySpeed);
 				spriteRenderer.flipY = (transform.eulerAngles.z > 180f && transform.eulerAngles.z < 270f);
 				spriteRenderer.flipX = !inLight;
 				transform.position = Vector2.Lerp(pos, pos - (Vector2)player.transform.position, Time.deltaTime * flySpeed / 2f);
-			}else{
+			}
+			else
+			{
 				Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 				transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * flySpeed);
 				spriteRenderer.flipY = (transform.eulerAngles.z > 180f && transform.eulerAngles.z < 270f);
@@ -67,6 +70,11 @@ public class BatController : Enemy
 			}
 			transform.position = Vector2.Lerp(pos, patrolPosition, (Time.deltaTime * flySpeed) / distanceDiff);
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D c)
+	{
+		OnCollision(c);
 	}
 
 	void OnTriggerEnter2D(Collider2D c)

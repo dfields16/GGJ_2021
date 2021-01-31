@@ -53,6 +53,7 @@ public class GoopEnemy : Enemy
 		}
 	}
 	void OnCollisionEnter2D(Collision2D c){
+		OnCollision(c);
 		if(LayerMask.LayerToName(c.gameObject.layer) == "Platforms"){
 			isGrounded = true;
 		}
