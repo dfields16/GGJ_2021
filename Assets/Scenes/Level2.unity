@@ -405,10 +405,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 472286171, guid: b83f6b0251fef264693d68dc1b32a799, type: 3}
-      propertyPath: agroDistance
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 8603983840448056484, guid: b83f6b0251fef264693d68dc1b32a799,
         type: 3}
       propertyPath: m_Name

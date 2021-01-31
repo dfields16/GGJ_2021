@@ -61,6 +61,14 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 	}
+	void Update()
+	{
+		Vector3 targ = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 vectorToTarget = targ - m_flashlight.transform.position;
+		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90;
+		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+		m_flashlight.transform.rotation = q;
+	}
 
 
 	public void Move(float move, bool crouch, bool jump)
