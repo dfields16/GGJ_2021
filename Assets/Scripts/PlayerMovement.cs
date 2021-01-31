@@ -16,10 +16,9 @@ public class PlayerMovement : MonoBehaviour
 	public float runSpeed = 40f;
 	bool jump = false;
 	bool crouch = false;
-	bool flashlight = false;
 
 	// Grab variables
-	bool holdingOrb = false;
+	public bool holdingOrb = false;
 	RaycastHit2D hit;
 	public float orbCollectionDistance = 1f;
 	public Transform holdPoint;
@@ -28,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Animation
     public Animator animator;
+	GameObject curOrb;
 
 	void Awake()
 	{
@@ -75,17 +75,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void onToggleFlashlight(){
         if(holdingOrb){
-            flashlight = true;
             ParticleSystem explosionEffect = Instantiate(DestructionEffect) as ParticleSystem;
-            explosionEffect.transform.position = hit.collider.gameObject.transform.position;
+            // explosionEffect.transform.position = hit.collider.gameObject.transform.position;
+            explosionEffect.transform.position = curOrb.transform.position;
             explosionEffect.loop = false;
             explosionEffect.Play();
-            Destroy(hit.collider.gameObject, 0.2f);
+            // Destroy(hit.collider.gameObject, 0.2f);
+            Destroy(curOrb.gameObject, 0.2f);
             holdingOrb = false;
+			curOrb = null;
 
             controller2D.FlashlightRefresh();
         }
     }
+
+	public void FlashlightRefresh(){
+		controller2D.FlashlightRefresh();
+	}
+
+	public void SetOrb(GameObject orb){
+		curOrb = orb;
+	}
 
     private void onGrab(){
         if(!holdingOrb){
@@ -94,7 +104,9 @@ public class PlayerMovement : MonoBehaviour
 
             // Physics2D.queriesStartInColliders = false;
             hit = Physics2D.Raycast(transform.position, Vector3.right * transform.localScale.x, orbCollectionDistance);
+
             if(hit.collider && hit.collider.tag == "Orb"){
+
                 holdingOrb = true;
             }
         }
@@ -105,11 +117,15 @@ public class PlayerMovement : MonoBehaviour
     {
         PerformMove();
         // PerformLook();
-        if(holdingOrb){
-            hit.collider.gameObject.transform.position = holdPoint.position;
-        }
+        // if(holdingOrb){
+        //     hit.collider.gameObject.transform.position = holdPoint.position;
+        // }
         animator.SetFloat("Speed", Mathf.Abs(moveVelocity.x));
     }
+
+	// public Vector3 GetMoveVelocity(){
+	// 	return moveVelocity;
+	// }
 
     void PerformMove(){
         // Move our character

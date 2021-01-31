@@ -749,7 +749,8 @@ MonoBehaviour:
   startIntensity: 4
   decaySpeed: 0.1
   scareTime: 2
-  DestructionEffect: {fileID: 0}
+  DestructionEffect: {fileID: 5769731233828286725, guid: e39bc3470d199c447a01628512723960,
+    type: 3}
 --- !u!1 &4545355845494105841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,6 +1264,7 @@ MonoBehaviour:
   controller2D: {fileID: 4545355844944370450}
   jumpHeight: 3
   runSpeed: 20
+  holdingOrb: 0
   orbCollectionDistance: 1
   holdPoint: {fileID: 4545355846015515945}
   DestructionEffect: {fileID: 5769731233828286725, guid: e39bc3470d199c447a01628512723960,
