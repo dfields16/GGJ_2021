@@ -40,6 +40,7 @@ public class GameMenu : MonoBehaviour
 	}
 
 	public void goToMainMenu(){
+		Time.timeScale = 1f;
 		SceneManager.LoadScene(0);
 	}
 
