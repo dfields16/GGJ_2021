@@ -8,6 +8,7 @@ public class OrbPathing : MonoBehaviour
     [SerializeField] float moveSpeed = 2f;
     int waypointIndex = 0;
     bool readyToMove = false;
+    Transform targetTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,12 @@ public class OrbPathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position != targetTransform.position)
+        {
+            var targetPosition = targetTransform.position;
+            var movementThisFrame = moveSpeed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
+        }
     }
 
     IEnumerator Path()
@@ -38,5 +44,10 @@ public class OrbPathing : MonoBehaviour
     public void MakeOrbReady()
     {
         readyToMove = true;
+    }
+
+    public void MarkNextWaypoint(Transform position)
+    {
+        targetTransform = position;
     }
 }
