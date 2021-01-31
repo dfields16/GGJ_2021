@@ -16,24 +16,6 @@ public class Orb : MonoBehaviour
 		}
 	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void FixedUpdate(){
-        if(following){
-            transform.position = parent.transform.Find("HoldPoint").transform.position;
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D collider2D){
         if (collider2D.gameObject.tag == "Player")
         {
