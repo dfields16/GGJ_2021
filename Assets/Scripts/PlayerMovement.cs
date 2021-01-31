@@ -123,7 +123,8 @@ public class PlayerMovement : MonoBehaviour
         //     hit.collider.gameObject.transform.position = holdPoint.position;
         // }
         animator.SetFloat("Speed", Mathf.Abs(moveVelocity.x));
-    }
+		animator.SetFloat("JumpSpeed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y));
+	}
 
 	// public Vector3 GetMoveVelocity(){
 	// 	return moveVelocity;
@@ -136,5 +137,5 @@ public class PlayerMovement : MonoBehaviour
       //   controller2D.FlashlightRefresh(flashlight);
 
         jump = false;
-    }
+	}
 }
