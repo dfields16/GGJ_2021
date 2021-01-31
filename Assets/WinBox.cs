@@ -24,7 +24,7 @@ public class WinBox : MonoBehaviour
         // GameObject.Instantiate(gameMenu.gameObject, Vector3.zero, Quaternion.identity);
         // GameMenu.menu.isPlayerDead(false);
 
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(0);
 
     }
 }
