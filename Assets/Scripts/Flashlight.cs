@@ -41,7 +41,7 @@ public class Flashlight : Enemy
 				{
 					enemy.inLight = true;
 					enemy.currLightTimer = scareTime;
-					h.collider.gameObject.transform.localScale = h.collider.gameObject.transform.localScale / 1.1f;
+					h.collider.gameObject.transform.localScale = h.collider.gameObject.transform.localScale / 1.01f;
 
 					ParticleSystem explosionEffect = Instantiate(DestructionEffect) as ParticleSystem;
 					explosionEffect.transform.position = h.collider.gameObject.transform.position;

@@ -12,6 +12,8 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;                   // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;            // A collider that will be disabled when crouching
 	[SerializeField] private GameObject m_flashlight;
+	[SerializeField] private GameObject m_arm;
+	[SerializeField] private float armDelta;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -60,6 +62,15 @@ public class CharacterController2D : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
+	}
+	void Update()
+	{
+		Vector3 targ = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 vectorToTarget = targ - m_arm.transform.position;
+		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90 + armDelta;
+		if(transform.localScale.x < 0) angle += 220;
+		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+		m_arm.transform.rotation = q;
 	}
 
 
