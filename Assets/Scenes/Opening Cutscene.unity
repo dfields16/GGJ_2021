@@ -332,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 864093429}
   - component: {fileID: 864093428}
+  - component: {fileID: 864093430}
   m_Layer: 0
   m_Name: CameraController
   m_TagString: Untagged
@@ -351,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b0e550a8dc4274cba3528b51b5690a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1301452346}
   useOffset: 1
   lockX: 0
   lockY: 0
@@ -365,13 +366,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864093427}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.95981985, y: -110.237686, z: -103.50257}
-  m_LocalScale: {x: 3.398203, y: 3.398203, z: 3.398203}
+  m_LocalPosition: {x: -1.4475508, y: 4.8781967, z: -30.458033}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1882490920}
-  m_Father: {fileID: 1301452346}
-  m_RootOrder: 11
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &864093430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864093427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340bd38871f8c97478dc0c7a7766e2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1301452346}
+  useOffset: 1
+  lockX: 0
+  lockY: 0
+  lockZ: 1
 --- !u!58 &1015927819
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2198,7 +2216,7 @@ PrefabInstance:
     - target: {fileID: 5260996050803640351, guid: 152ffb251b1999d41a9a5b357089c134,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5260996050803640351, guid: 152ffb251b1999d41a9a5b357089c134,
         type: 3}
