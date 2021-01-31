@@ -6,47 +6,51 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 100f;
-    [SerializeField] float currentHealth;
-    [SerializeField] Light2D playerLight;
+	[SerializeField] float maxHealth = 100f;
+	[SerializeField] float currentHealth;
+	[SerializeField] Light2D playerLight;
 
-    GameMenu gameMenu;
-    
+	[SerializeField] private GameMenu gameMenu;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-		if(!playerLight) playerLight = GetComponent<Light2D>();
-        gameMenu = FindObjectOfType<GameMenu>();
-        currentHealth = maxHealth;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        playerLight.intensity = currentHealth / 100;
+	// Start is called before the first frame update
+	void Start()
+	{
+		if (!playerLight) playerLight = GetComponent<Light2D>();
+		currentHealth = maxHealth;
+	}
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            LoseHealth(25);
-            Debug.Log(currentHealth);
-        }
-    }
+	// Update is called once per frame
+	void Update()
+	{
+		playerLight.intensity = currentHealth / 100;
 
-    public void PickupHealth(float health)
-    {
-        currentHealth += health;
-        if (currentHealth > maxHealth) { currentHealth = maxHealth; }
-    }
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			LoseHealth(25);
+			Debug.Log(currentHealth);
+		}
+	}
 
-    public void LoseHealth(float health)
-    {
-        currentHealth -= health;
-        if (currentHealth <= 0) { gameMenu.isPlayerDead(true); }
-    }
+	public void PickupHealth(float health)
+	{
+		currentHealth += health;
+		if (currentHealth > maxHealth) { currentHealth = maxHealth; }
+	}
 
-    public float GetPlayerHealth()
-    {
-        return currentHealth;
-    }
+	public void LoseHealth(float health)
+	{
+		currentHealth -= health;
+
+		if (currentHealth <= 0)
+		{
+			GameObject.Instantiate(gameMenu.gameObject, Vector3.zero, Quaternion.identity);
+			GameMenu.menu.isPlayerDead(true);
+		}
+	}
+
+	public float GetPlayerHealth()
+	{
+		return currentHealth;
+	}
 }

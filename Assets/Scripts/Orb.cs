@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Orb : MonoBehaviour
 {
-    bool following = false;
-    GameObject parent;
+	[SerializeField] float healthValue = 50f;
+	bool following = false;
+	GameObject parent;
 
-    [SerializeField] float healthValue = 50f;
+	void FixedUpdate()
+	{
+		if (following)
+		{
+			transform.position = parent.transform.Find("HoldPoint").transform.position;
+		}
+	}
 
     // Start is called before the first frame update
     void Start()

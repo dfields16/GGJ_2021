@@ -26,9 +26,14 @@ public class GoopEnemy : Enemy
 
 	void Update()
 	{
-		if(!agro && Vector2.Distance(player.transform.position, transform.position) < agroDistance){
+		currHitCoolDown -= Time.deltaTime;
+
+		if (!agro && Vector2.Distance(player.transform.position, transform.position) < agroDistance)
+		{
 			agro = true;
-		}else if(agro){
+		}
+		else if (agro)
+		{
 			if (inLight)
 			{
 				if (isGrounded)
@@ -47,20 +52,30 @@ public class GoopEnemy : Enemy
 				}
 			}
 
-			if(currLightTimer < 0){
+			if (currLightTimer < 0)
+			{
 				inLight = false;
 			}
 		}
 	}
-	void OnCollisionEnter2D(Collision2D c){
+
+	void OnCollisionStay2D(Collision2D c)
+	{
+		OnCollisionEnter2D(c);
+	}
+	void OnCollisionEnter2D(Collision2D c)
+	{
 		OnCollision(c);
-		if(LayerMask.LayerToName(c.gameObject.layer) == "Platforms"){
+		if (LayerMask.LayerToName(c.gameObject.layer) == "Platforms")
+		{
 			isGrounded = true;
 		}
 	}
 
-	void OnCollisionExit2D(Collision2D c){
-		if(LayerMask.LayerToName(c.gameObject.layer) == "Platforms"){
+	void OnCollisionExit2D(Collision2D c)
+	{
+		if (LayerMask.LayerToName(c.gameObject.layer) == "Platforms")
+		{
 			isGrounded = false;
 		}
 	}
