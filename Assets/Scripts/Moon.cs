@@ -12,6 +12,8 @@ public class Moon : MonoBehaviour
 	private bool isDying, isDying2;
 	public float deadThreshold;
 	public float growThreshold;
+	public GameMenu gameMenu;
+
 
 
 	void Start()
@@ -37,6 +39,12 @@ public class Moon : MonoBehaviour
 			}else{
 				light2D.intensity -= Time.deltaTime * decaySpeed;
 			}
+		}
+
+		if(light2D.intensity <= deadThreshold && isDying2){
+			// end game
+			GameObject.Instantiate(gameMenu.gameObject, Vector3.zero, Quaternion.identity);
+			GameMenu.menu.isPlayerDead(true);
 		}
 	}
 }
