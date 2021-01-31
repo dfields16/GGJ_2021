@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
 	public ParticleSystem DestructionEffect;
 	[SerializeField] private GameObject pauseMenu;
 
+    // Animation
+    public Animator animator;
+
 	void Awake()
 	{
 		controller2D = GetComponent<CharacterController2D>();
@@ -105,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
         if(holdingOrb){
             hit.collider.gameObject.transform.position = holdPoint.position;
         }
+        animator.SetFloat("Speed", Mathf.Abs(moveVelocity.x));
     }
 
     void PerformMove(){
