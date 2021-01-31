@@ -41,7 +41,7 @@ public class Flashlight : MonoBehaviour
 				{
 					enemy.inLight = true;
 					enemy.currLightTimer = scareTime;
-					h.collider.gameObject.transform.localScale = h.collider.gameObject.transform.localScale / 1.5f;
+					h.collider.gameObject.transform.localScale = h.collider.gameObject.transform.localScale / 1.1f;
 
 					ParticleSystem explosionEffect = Instantiate(DestructionEffect) as ParticleSystem;
 					explosionEffect.transform.position = h.collider.gameObject.transform.position;
