@@ -9,11 +9,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float maxHealth = 100f;
     [SerializeField] float currentHealth;
     [SerializeField] Light2D playerLight;
+
+    GameMenu gameMenu;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        gameMenu = FindObjectOfType<GameMenu>();
         currentHealth = maxHealth;
     }
 
@@ -38,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
     public void LoseHealth(float health)
     {
         currentHealth -= health;
-        if (currentHealth <= 0) { SceneManager.LoadScene(2); }
+        if (currentHealth <= 0) { gameMenu.isPlayerDead(true); }
     }
 
     public float GetPlayerHealth()
