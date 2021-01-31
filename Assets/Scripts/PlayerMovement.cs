@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool holdingOrb = false;
 	RaycastHit2D hit;
 	public float orbCollectionDistance = 1f;
+	public float orbHealValue = 50f;
 	public Transform holdPoint;
 	public ParticleSystem DestructionEffect;
 	[SerializeField] private GameObject pauseMenu;
@@ -85,7 +86,8 @@ public class PlayerMovement : MonoBehaviour
             holdingOrb = false;
 			curOrb = null;
 
-            controller2D.FlashlightRefresh();
+			GetComponent<PlayerHealth>().PickupHealth(orbHealValue);
+			controller2D.FlashlightRefresh();
         }
     }
 
