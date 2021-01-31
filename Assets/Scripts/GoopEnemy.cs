@@ -18,6 +18,10 @@ public class GoopEnemy : MonoBehaviour
 	private bool isGrounded;
 
 	public float currLightTimer = 0;
+
+	[SerializeField] float hitDamage = 20f;
+	[SerializeField] float knockbackForce = 50f;
+
 	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -59,6 +63,20 @@ public class GoopEnemy : MonoBehaviour
 		if(LayerMask.LayerToName(c.gameObject.layer) == "Platforms"){
 			isGrounded = true;
 		}
+		if(c.gameObject.tag == "Player")
+        {
+			GameObject player = c.gameObject;
+			player.GetComponent<PlayerHealth>().LoseHealth(hitDamage);
+			// TODO Trigger Damage Taking Audio
+			if(transform.position.x > player.transform.position.x)
+            {
+				player.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockbackForce, 5f);
+			}
+            else
+            {
+				player.GetComponent<Rigidbody2D>().velocity = new Vector2(knockbackForce, 5f);
+			}
+        }
 	}
 	void OnCollisionExit2D(Collision2D c){
 		if(LayerMask.LayerToName(c.gameObject.layer) == "Platforms"){

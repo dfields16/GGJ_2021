@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 371cb007270464e4da6a5eb4ed7c0e7c
+    path: Assets/Scenes/Menu.unity
+    guid: 84524ff1b1807094b82569674399dd22
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 5ad64e4a05b622948807b5906a1af0a7
+  - enabled: 0
+    path: Assets/Scenes/MainMenu.unity
+    guid: 371cb007270464e4da6a5eb4ed7c0e7c
+<<<<<<< HEAD
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 5ad64e4a05b622948807b5906a1af0a7
+=======
+  - enabled: 0
+    path: Assets/Scenes/Dawson TestFloor.unity
+    guid: 339a801747fe29c47b2cec9a83ce1c28
+>>>>>>> 1f10157cc5c3bc4b90834c6002ad096b50a94f05
   m_configObjects: {}
