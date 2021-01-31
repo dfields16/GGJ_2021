@@ -11,6 +11,7 @@ public class Portal : MonoBehaviour
     Collider2D player;
     public Transform targetPosition;
     public Canvas canvas;
+    public bool level2;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +22,13 @@ public class Portal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(collided){
+        if(collided && !level2){
             player.GetComponent<Rigidbody2D>().gravityScale = 0;
             player.transform.position = Vector2.MoveTowards(player.transform.position, targetPosition.position, suckSpeed * Time.deltaTime);
             canvas.GetComponent<UIController>().FlashWhite(true);
             Invoke("LoadNextLevel", 1.0f);
         }
+        
     }
 
     void LoadNextLevel(){

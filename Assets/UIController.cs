@@ -40,6 +40,9 @@ public class UIController : MonoBehaviour
                 yield return null;
             }
         } else {
+            // flashSquare.GetComponent<Image>().color = new Color(objectColor.r, objectColor.g, objectColor.b, 255);
+            // objectColor = flashSquare.GetComponent<Image>().color;
+            // Debug.Log("COLOR.A: " + flashSquare.GetComponent<Image>().color.a);
             while(flashSquare.GetComponent<Image>().color.a > 0){
                 fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
 
