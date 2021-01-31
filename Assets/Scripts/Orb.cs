@@ -12,7 +12,7 @@ public class Orb : MonoBehaviour
 	public float size = 0.75f;
 
 	void Update(){
-		transform.localScale = Vector3.one * size * (2 + Mathf.Sin(Time.time * pulseSpeed));
+		transform.localScale = Vector3.one * size * (2 + Mathf.Sin(Time.time * pulseSpeed) / 2f);
 	}
 
 	void FixedUpdate()
