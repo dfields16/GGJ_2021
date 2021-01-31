@@ -35,10 +35,13 @@ public class BatController : Enemy
 		currHitCoolDown -= Time.deltaTime;
 		if (isBatTrigger) return;
 		Vector2 pos = transform.position;
-		RaycastHit2D hit = Physics2D.Raycast(pos, ((Vector2)player.transform.position - pos), Vector2.Distance(pos, player.transform.position), diveLayers);
+		Vector3 playerPos = player.transform.position;
+		playerPos.y += 4f;
+
+		RaycastHit2D hit = Physics2D.Raycast(pos, ((Vector2)playerPos - pos), Vector2.Distance(pos, playerPos), diveLayers);
 		if (agro && !hit)
 		{
-			Vector3 targ = player.transform.position;
+			Vector3 targ = playerPos;
 			targ.z = 0f;
 			targ = targ - (Vector3)pos;
 			float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
@@ -49,14 +52,14 @@ public class BatController : Enemy
 				transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * flySpeed);
 				spriteRenderer.flipY = (transform.eulerAngles.z > 180f && transform.eulerAngles.z < 270f);
 				spriteRenderer.flipX = !inLight;
-				transform.position = Vector2.Lerp(pos, pos - (Vector2)player.transform.position, Time.deltaTime * flySpeed / 2f);
+				transform.position = Vector2.Lerp(pos, pos - (Vector2)playerPos, Time.deltaTime * flySpeed / 2f);
 			}
 			else
 			{
 				Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 				transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * flySpeed);
 				spriteRenderer.flipY = (transform.eulerAngles.z > 180f && transform.eulerAngles.z < 270f);
-				transform.position = Vector2.Lerp(pos, player.transform.position, Time.deltaTime * flySpeed / 2f);
+				transform.position = Vector2.Lerp(pos, playerPos, Time.deltaTime * flySpeed / 2f);
 			}
 		}
 		else
