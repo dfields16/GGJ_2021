@@ -3316,6 +3316,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4545355844944370451, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: OrbDestructionEffect
+      value: 
+      objectReference: {fileID: 5769731233828286725, guid: e39bc3470d199c447a01628512723960,
+        type: 3}
     - target: {fileID: 5260996050803640351, guid: 152ffb251b1999d41a9a5b357089c134,
         type: 3}
       propertyPath: m_RootOrder

@@ -1272,8 +1272,10 @@ MonoBehaviour:
   runSpeed: 20
   holdingOrb: 0
   orbCollectionDistance: 1
+  orbHealValue: 50
   holdPoint: {fileID: 4545355846015515945}
-  OrbDestructionEffect: {fileID: 0}
+  OrbDestructionEffect: {fileID: 5769731233828286725, guid: e39bc3470d199c447a01628512723960,
+    type: 3}
   pauseMenu: {fileID: 372141242410345985, guid: 4e3cd8d04b7635f4f91cc67b5a005303,
     type: 3}
   animator: {fileID: 4545355844944370456}
