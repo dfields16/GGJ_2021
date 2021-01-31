@@ -56,7 +56,7 @@ MonoBehaviour:
   jumpClip: {fileID: 0}
   jumpVoiceClip: {fileID: 0}
   deathVoiceClip: {fileID: 0}
-  orbVoiceClip: {fileID: 8300000, guid: 9add4603d299a4d43906711265af3033, type: 3}
+  orbVoiceClip: {fileID: 8300000, guid: bd5189c6238f84ea2a1ddc7a961f065a, type: 3}
   winVoiceClip: {fileID: 0}
   ambientGroup: {fileID: 0}
   musicGroup: {fileID: 0}
