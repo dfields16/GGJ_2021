@@ -26,8 +26,8 @@ public class PlayerMovement : MonoBehaviour
 	public ParticleSystem OrbDestructionEffect;
 	[SerializeField] private GameObject pauseMenu;
 
-    // Animation
-    public Animator animator;
+	// Animation
+	public Animator animator;
 	GameObject curOrb;
 
 	void Awake()
@@ -50,9 +50,12 @@ public class PlayerMovement : MonoBehaviour
 	}
 	private void onPause()
 	{
-		if(GameMenu.menu){
+		if (GameMenu.menu)
+		{
 			GameMenu.menu.closeWindow();
-		}else{
+		}
+		else
+		{
 			GameObject.Instantiate(pauseMenu, Vector3.zero, Quaternion.identity);
 			GameMenu.menu.isPlayerDead(false);
 		}
@@ -62,67 +65,84 @@ public class PlayerMovement : MonoBehaviour
 
 	}
 
-    private void onMove(Vector2 input){
-        moveVelocity = new Vector3(input.x * axisLimit.x, moveVelocity.y * axisLimit.y, 0f);
-    }
+	private void onMove(Vector2 input)
+	{
+		moveVelocity = new Vector3(input.x * axisLimit.x, moveVelocity.y * axisLimit.y, 0f);
+	}
 
-    private void onJump(){
-        jump = true;
-    }
+	private void onJump()
+	{
+		jump = true;
+	}
 
-    private void onCrouch(){
-        crouch = true;
-    }
+	private void onCrouch()
+	{
+		crouch = true;
+	}
 
-    private void onToggleFlashlight(){
-        if(holdingOrb){
-            ParticleSystem explosionEffect = Instantiate(OrbDestructionEffect) as ParticleSystem;
-            // explosionEffect.transform.position = hit.collider.gameObject.transform.position;
-            explosionEffect.transform.position = curOrb.transform.position;
-            explosionEffect.loop = false;
-            explosionEffect.Play();
-            // Destroy(hit.collider.gameObject, 0.2f);
-            Destroy(curOrb.gameObject, 0.2f);
-            holdingOrb = false;
+	private void onToggleFlashlight()
+	{
+		if (holdingOrb)
+		{
+			ParticleSystem explosionEffect = Instantiate(OrbDestructionEffect) as ParticleSystem;
+			// explosionEffect.transform.position = hit.collider.gameObject.transform.position;
+			explosionEffect.transform.position = curOrb.transform.position;
+			explosionEffect.loop = false;
+			explosionEffect.Play();
+			// Destroy(hit.collider.gameObject, 0.2f);
+
+			if(curOrb.GetComponent<SpatialAudio2D>()){
+				curOrb.GetComponent<SpatialAudio2D>().Remove();
+			}else{
+				Destroy(curOrb.gameObject, 0.2f);
+			}
+
+			AudioManager.PlayOrbCollectionAudio();
+			holdingOrb = false;
 			curOrb = null;
 
 			GetComponent<PlayerHealth>().PickupHealth(orbHealValue);
 			controller2D.FlashlightRefresh();
-        }
-    }
+		}
+	}
 
-	public void FlashlightRefresh(){
+	public void FlashlightRefresh()
+	{
 		controller2D.FlashlightRefresh();
 	}
 
-	public void SetOrb(GameObject orb){
+	public void SetOrb(GameObject orb)
+	{
 		curOrb = orb;
 	}
 
-    private void onGrab(){
-        if(!holdingOrb){
+	private void onGrab()
+	{
+		if (!holdingOrb)
+		{
 
-            // hold orb
+			// hold orb
 
-            // Physics2D.queriesStartInColliders = false;
-            hit = Physics2D.Raycast(transform.position, Vector3.right * transform.localScale.x, orbCollectionDistance);
+			// Physics2D.queriesStartInColliders = false;
+			hit = Physics2D.Raycast(transform.position, Vector3.right * transform.localScale.x, orbCollectionDistance);
 
-            if(hit.collider && hit.collider.tag == "Orb"){
+			if (hit.collider && hit.collider.tag == "Orb")
+			{
 
-                holdingOrb = true;
-            }
-        }
-    }
+				holdingOrb = true;
+			}
+		}
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        PerformMove();
-        // PerformLook();
-        // if(holdingOrb){
-        //     hit.collider.gameObject.transform.position = holdPoint.position;
-        // }
-        animator.SetFloat("Speed", Mathf.Abs(moveVelocity.x));
+	// Update is called once per frame
+	void Update()
+	{
+		PerformMove();
+		// PerformLook();
+		// if(holdingOrb){
+		//     hit.collider.gameObject.transform.position = holdPoint.position;
+		// }
+		animator.SetFloat("Speed", Mathf.Abs(moveVelocity.x));
 		animator.SetFloat("JumpSpeed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y));
 	}
 
@@ -130,14 +150,16 @@ public class PlayerMovement : MonoBehaviour
 	// 	return moveVelocity;
 	// }
 
-    void PerformMove(){
-        // Move our character
-			if(moveVelocity.x != 0 && controller2D.isGrounded()) {
-				AudioManager.PlayFootstepAudio();
-			}
-        controller2D.Move(moveVelocity.x * runSpeed * Time.fixedDeltaTime, crouch, jump);
-      //   controller2D.FlashlightRefresh(flashlight);
+	void PerformMove()
+	{
+		// Move our character
+		if (moveVelocity.x != 0 && controller2D.isGrounded())
+		{
+			AudioManager.PlayFootstepAudio();
+		}
+		controller2D.Move(moveVelocity.x * runSpeed * Time.fixedDeltaTime, crouch, jump);
+		//   controller2D.FlashlightRefresh(flashlight);
 
-        jump = false;
+		jump = false;
 	}
 }
