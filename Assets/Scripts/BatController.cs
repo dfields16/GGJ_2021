@@ -32,6 +32,7 @@ public class BatController : Enemy
 	// Update is called once per frame
 	void Update()
 	{
+		currHitCoolDown -= Time.deltaTime;
 		if (isBatTrigger) return;
 		Vector2 pos = transform.position;
 		RaycastHit2D hit = Physics2D.Raycast(pos, ((Vector2)player.transform.position - pos), Vector2.Distance(pos, player.transform.position), diveLayers);
@@ -72,6 +73,10 @@ public class BatController : Enemy
 		}
 	}
 
+	void OnCollisionStay2D(Collision2D c)
+	{
+		OnCollisionEnter2D(c);
+	}
 	void OnCollisionEnter2D(Collision2D c)
 	{
 		OnCollision(c);

@@ -4,32 +4,23 @@ using UnityEngine;
 
 public class Orb : MonoBehaviour
 {
-    bool following = false;
-    GameObject parent;
+	bool following = false;
+	GameObject parent;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	void FixedUpdate()
+	{
+		if (following)
+		{
+			transform.position = parent.transform.Find("HoldPoint").transform.position;
+		}
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void OnTriggerEnter2D(Collider2D collider2D)
+	{
+		parent = collider2D.gameObject;
+		following = true;
+		parent.GetComponent<PlayerMovement>().holdingOrb = true;
+		parent.GetComponent<PlayerMovement>().SetOrb(gameObject);
 
-    void FixedUpdate(){
-        if(following){
-            transform.position = parent.transform.Find("HoldPoint").transform.position;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collider2D){
-        parent = collider2D.gameObject;
-        following = true;
-        parent.GetComponent<PlayerMovement>().holdingOrb = true;
-        parent.GetComponent<PlayerMovement>().SetOrb(gameObject);
-
-    }
+	}
 }
