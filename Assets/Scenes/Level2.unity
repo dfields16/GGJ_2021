@@ -4166,6 +4166,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1230103067, guid: 55e35256ddd7049eebd8b1e812cef210, type: 3}
+      propertyPath: DestructionEffect
+      value: 
+      objectReference: {fileID: 5769731233828286725, guid: e39bc3470d199c447a01628512723960,
+        type: 3}
     - target: {fileID: 3589323780193506249, guid: 55e35256ddd7049eebd8b1e812cef210,
         type: 3}
       propertyPath: m_RootOrder
