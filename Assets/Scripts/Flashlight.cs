@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class Flashlight : MonoBehaviour
+public class Flashlight : Enemy
 {
 	public Transform[] hitPts;
 	public LayerMask layerMask;
@@ -33,15 +33,15 @@ public class Flashlight : MonoBehaviour
 		for (int i = 0; i < hitPts.Length; i++)
 		{
 			RaycastHit2D h = Physics2D.Raycast(transform.position, (hitPts[i].position - transform.position).normalized, hitDistance, layerMask);
-			Debug.DrawLine(transform.position, hitPts[i].position, Color.yellow);
+			Debug.DrawLine(transform.position,(h.point != null) ? (Vector3)h.point : hitPts[i].position, Color.yellow);
 			if (h.collider != null)
 			{
-				GoopEnemy enemy = h.collider.gameObject.GetComponent<GoopEnemy>();
+				Enemy enemy = h.collider.gameObject.GetComponent<Enemy>();
 				if (enemy)
 				{
 					enemy.inLight = true;
 					enemy.currLightTimer = scareTime;
-					h.collider.gameObject.transform.localScale = h.collider.gameObject.transform.localScale / 1.1f;
+					h.collider.gameObject.transform.localScale = h.collider.gameObject.transform.localScale / 1.01f;
 
 					ParticleSystem explosionEffect = Instantiate(DestructionEffect) as ParticleSystem;
 					explosionEffect.transform.position = h.collider.gameObject.transform.position;

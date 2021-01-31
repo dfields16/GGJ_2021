@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class GoopEnemy : MonoBehaviour
+public class GoopEnemy : Enemy
 {
 	[HideInInspector] public GameObject player;
-	public bool inLight = false;
 	public Rigidbody2D rb;
 
 	public float jumpForce = 5f;
@@ -17,10 +16,6 @@ public class GoopEnemy : MonoBehaviour
 	private bool agro = false;
 	private bool isGrounded;
 
-	public float currLightTimer = 0;
-
-	[SerializeField] float hitDamage = 20f;
-	[SerializeField] float knockbackForce = 50f;
 
 	void Start()
 	{
@@ -31,9 +26,14 @@ public class GoopEnemy : MonoBehaviour
 
 	void Update()
 	{
-		if(!agro && Vector2.Distance(player.transform.position, transform.position) < agroDistance){
+		currHitCoolDown -= Time.deltaTime;
+
+		if (!agro && Vector2.Distance(player.transform.position, transform.position) < agroDistance)
+		{
 			agro = true;
-		}else if(agro){
+		}
+		else if (agro)
+		{
 			if (inLight)
 			{
 				if (isGrounded)
@@ -52,34 +52,30 @@ public class GoopEnemy : MonoBehaviour
 				}
 			}
 
-			if(currLightTimer < 0){
+			if (currLightTimer < 0)
+			{
 				inLight = false;
 			}
 		}
 	}
 
-
-	void OnCollisionEnter2D(Collision2D c){
-		if(LayerMask.LayerToName(c.gameObject.layer) == "Platforms"){
+	void OnCollisionStay2D(Collision2D c)
+	{
+		OnCollisionEnter2D(c);
+	}
+	void OnCollisionEnter2D(Collision2D c)
+	{
+		OnCollision(c);
+		if (LayerMask.LayerToName(c.gameObject.layer) == "Platforms")
+		{
 			isGrounded = true;
 		}
-		if(c.gameObject.tag == "Player")
-        {
-			GameObject player = c.gameObject;
-			player.GetComponent<PlayerHealth>().LoseHealth(hitDamage);
-			// TODO Trigger Damage Taking Audio
-			if(transform.position.x > player.transform.position.x)
-            {
-				player.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockbackForce, 5f);
-			}
-            else
-            {
-				player.GetComponent<Rigidbody2D>().velocity = new Vector2(knockbackForce, 5f);
-			}
-        }
 	}
-	void OnCollisionExit2D(Collision2D c){
-		if(LayerMask.LayerToName(c.gameObject.layer) == "Platforms"){
+
+	void OnCollisionExit2D(Collision2D c)
+	{
+		if (LayerMask.LayerToName(c.gameObject.layer) == "Platforms")
+		{
 			isGrounded = false;
 		}
 	}

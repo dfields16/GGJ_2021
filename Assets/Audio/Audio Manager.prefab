@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4308bd297d244d8bfc77e135918c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambientClip: {fileID: 8300000, guid: 7aff081b1c4344621aca0e7983538484, type: 3}
+  ambientClip: {fileID: 8300000, guid: d511ffe465a4949b49f0d677b9a32c2a, type: 3}
   musicClip: {fileID: 0}
   levelStingClip: {fileID: 0}
   deathStingClip: {fileID: 0}

@@ -10,6 +10,7 @@ public class GameMenu : MonoBehaviour
 	[HideInInspector] public static GameMenu menu;
 	[SerializeField] private GameObject resumeBtn;
 	[SerializeField] private GameObject quitBtn;
+	[SerializeField] private GameObject closeBtn;
 
 
 	void Awake(){
@@ -26,6 +27,7 @@ public class GameMenu : MonoBehaviour
 			message.text = "You have lost all light.";
 			resumeBtn.SetActive(false);
 			quitBtn.SetActive(true);
+			closeBtn.SetActive(false);
 		}else{
 			message.text = "Paused";
 			resumeBtn.SetActive(true);

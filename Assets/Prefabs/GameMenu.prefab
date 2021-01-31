@@ -117,6 +117,7 @@ MonoBehaviour:
   message: {fileID: 372141242861780863}
   resumeBtn: {fileID: 372141244533381407}
   quitBtn: {fileID: 372141243372068028}
+  closeBtn: {fileID: 372141243031430929}
 --- !u!1 &372141242592180775
 GameObject:
   m_ObjectHideFlags: 0

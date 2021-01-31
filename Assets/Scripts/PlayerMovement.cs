@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 	RaycastHit2D hit;
 	public float orbCollectionDistance = 1f;
 	public Transform holdPoint;
-	public ParticleSystem DestructionEffect;
+	public ParticleSystem OrbDestructionEffect;
 	[SerializeField] private GameObject pauseMenu;
 
     // Animation
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void onToggleFlashlight(){
         if(holdingOrb){
-            ParticleSystem explosionEffect = Instantiate(DestructionEffect) as ParticleSystem;
+            ParticleSystem explosionEffect = Instantiate(OrbDestructionEffect) as ParticleSystem;
             // explosionEffect.transform.position = hit.collider.gameObject.transform.position;
             explosionEffect.transform.position = curOrb.transform.position;
             explosionEffect.loop = false;

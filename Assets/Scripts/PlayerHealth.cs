@@ -6,43 +6,51 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 100f;
-    [SerializeField] float currentHealth;
-    [SerializeField] Light2D playerLight;
-    
+	[SerializeField] float maxHealth = 100f;
+	[SerializeField] float currentHealth;
+	[SerializeField] Light2D playerLight;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentHealth = maxHealth;
-    }
+	[SerializeField] private GameMenu gameMenu;
 
-    // Update is called once per frame
-    void Update()
-    {
-        playerLight.intensity = currentHealth / 100;
 
-        if (Input.GetKeyDown(KeyCode.R)) 
-        { 
-            LoseHealth(25);
-            Debug.Log(currentHealth);
-        }
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		if (!playerLight) playerLight = GetComponent<Light2D>();
+		currentHealth = maxHealth;
+	}
 
-    public void PickupHealth(float health)
-    {
-        currentHealth += health;
-        if (currentHealth > maxHealth) { currentHealth = maxHealth; }
-    }
+	// Update is called once per frame
+	void Update()
+	{
+		playerLight.intensity = currentHealth / 100;
 
-    public void LoseHealth(float health)
-    {
-        currentHealth -= health;
-        if (currentHealth <= 0) { SceneManager.LoadScene(2); }
-    }
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			LoseHealth(25);
+			Debug.Log(currentHealth);
+		}
+	}
 
-    public float GetPlayerHealth()
-    {
-        return currentHealth;
-    }
+	public void PickupHealth(float health)
+	{
+		currentHealth += health;
+		if (currentHealth > maxHealth) { currentHealth = maxHealth; }
+	}
+
+	public void LoseHealth(float health)
+	{
+		currentHealth -= health;
+
+		if (currentHealth <= 0)
+		{
+			GameObject.Instantiate(gameMenu.gameObject, Vector3.zero, Quaternion.identity);
+			GameMenu.menu.isPlayerDead(true);
+		}
+	}
+
+	public float GetPlayerHealth()
+	{
+		return currentHealth;
+	}
 }
