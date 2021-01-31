@@ -116,7 +116,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 137c8a5df8f65144588c5832a34ceeb0, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 137c8a5df8f65144588c5832a34ceeb0, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -154,11 +155,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4a0a188919a4d4b8898d5317a101df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   inLight: 0
+  currLightTimer: 0
+  hitDamage: 20
+  knockbackForce: 50
+  player: {fileID: 0}
   rb: {fileID: 472286172}
   jumpForce: 30
-  currLightTimer: 0
+  agroDistance: 12
 --- !u!70 &2962971466469007489
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

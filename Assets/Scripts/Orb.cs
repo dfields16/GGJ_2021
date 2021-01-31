@@ -7,6 +7,8 @@ public class Orb : MonoBehaviour
     bool following = false;
     GameObject parent;
 
+    [SerializeField] float healthValue = 50f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,6 @@ public class Orb : MonoBehaviour
         following = true;
         parent.GetComponent<PlayerMovement>().holdingOrb = true;
         parent.GetComponent<PlayerMovement>().SetOrb(gameObject);
-
+        parent.GetComponent<PlayerHealth>().PickupHealth(healthValue);
     }
 }
