@@ -28,10 +28,13 @@ public class Orb : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collider2D){
-        parent = collider2D.gameObject;
-        following = true;
-        parent.GetComponent<PlayerMovement>().holdingOrb = true;
-        parent.GetComponent<PlayerMovement>().SetOrb(gameObject);
-        parent.GetComponent<PlayerHealth>().PickupHealth(healthValue);
+        if (collider2D.gameObject.tag == "Player")
+        {
+            parent = collider2D.gameObject;
+            following = true;
+            parent.GetComponent<PlayerMovement>().holdingOrb = true;
+            parent.GetComponent<PlayerMovement>().SetOrb(gameObject);
+            parent.GetComponent<PlayerHealth>().PickupHealth(healthValue);
+        }
     }
 }
