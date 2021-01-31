@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &110559939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5260996050803640351, guid: 152ffb251b1999d41a9a5b357089c134,
+    type: 3}
+  m_PrefabInstance: {fileID: 903337119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &206472615
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,6 +3248,106 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 781650240275444745, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271373126054667614, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286833030049621930, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3318035281422784758, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365006096562989726, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624888132578132783, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3631300988730562760, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504466572402889298, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545355844939543783, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545355844944370448, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: playerLight
+      value: 
+      objectReference: {fileID: 906228191}
+    - target: {fileID: 4545355844944370448, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: playerLightSource
+      value: 
+      objectReference: {fileID: 906228188}
+    - target: {fileID: 4545355845100201500, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545355845494105841, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545355845494105841, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545355845494105843, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 110559939}
+    - target: {fileID: 4545355845494105843, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545355845646074992, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545355846849168306, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545355846886649681, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545355846928235281, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5260996050803640351, guid: 152ffb251b1999d41a9a5b357089c134,
         type: 3}
       propertyPath: m_RootOrder
@@ -3302,8 +3408,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soul
       objectReference: {fileID: 0}
+    - target: {fileID: 6186970254234582842, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186970254234582842, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751010052462504948, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344340334074073281, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8460179092564122538, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093599347798960746, guid: 152ffb251b1999d41a9a5b357089c134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 152ffb251b1999d41a9a5b357089c134, type: 3}
+--- !u!1 &906228188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4545355845494105841, guid: 152ffb251b1999d41a9a5b357089c134,
+    type: 3}
+  m_PrefabInstance: {fileID: 903337119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &906228191 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4545355845494105842, guid: 152ffb251b1999d41a9a5b357089c134,
+    type: 3}
+  m_PrefabInstance: {fileID: 903337119}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906228188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1111040112
 GameObject:
   m_ObjectHideFlags: 0

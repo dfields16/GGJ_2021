@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5348857493595948034}
   - component: {fileID: 9147551399218056466}
   - component: {fileID: 3800525121578800850}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Layer 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 2108214804748040387}
   m_Bounds:
-    m_Center: {x: 0.04858178, y: -0.018164814, z: 0}
-    m_Extent: {x: 0.51812863, y: 0.61561036, z: 0}
+    m_Center: {x: 0.048580766, y: -0.018162906, z: 0}
+    m_Extent: {x: 0.51812863, y: 0.6156104, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &1271373126054667614
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2117509695415748990}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 7251407339683829704}
   - component: {fileID: 1443276955858096724}
   - component: {fileID: 8531702557677846914}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Layer 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 800172315889253932}
   m_Bounds:
-    m_Center: {x: 0.005669892, y: 0.002453804, z: 0}
+    m_Center: {x: 0.0056688786, y: 0.002454877, z: 0}
     m_Extent: {x: 0.66285, y: 1.1889551, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -252,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5170408936901409221}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 806253847349781164}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Back Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 136370805364062348}
   - component: {fileID: 7038285280292201372}
   - component: {fileID: 4891238762947376840}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Layer 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,8 +403,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 2117509695415748990}
   m_Bounds:
-    m_Center: {x: 0.009904981, y: 0.005893588, z: 0}
-    m_Extent: {x: 1.505875, y: 1.6896951, z: 0}
+    m_Center: {x: 0.009904027, y: 0.005895734, z: 0}
+    m_Extent: {x: 1.5058751, y: 1.6896954, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3631300988730562760
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 1724424548818863943}
   - component: {fileID: 5603114120891693730}
   - component: {fileID: 4363732645040242556}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Layer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,8 +508,8 @@ MonoBehaviour:
   - {fileID: 2117509695415748990}
   - {fileID: 5170408936901409221}
   m_Bounds:
-    m_Center: {x: -0.064128995, y: -0.0027757883, z: 0}
-    m_Extent: {x: 1.7241297, y: 1.7623051, z: 0}
+    m_Center: {x: -0.06412995, y: -0.0027737617, z: 0}
+    m_Extent: {x: 1.7241299, y: 1.7623051, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &4504466572402889298
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 2609601545533386903}
   - component: {fileID: 2735394448445921894}
   - component: {fileID: 6566052709374799545}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Layer 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 806253847349781164}
   m_Bounds:
-    m_Center: {x: -0.1296277, y: -0.007117808, z: 0}
+    m_Center: {x: -0.1296277, y: -0.0071163774, z: 0}
     m_Extent: {x: 0.5222509, y: 0.61785996, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -625,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4545355844939543782}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightRaycast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 4545355845100201503}
   - component: {fileID: 4545355845100201473}
   - component: {fileID: 4545355845100201502}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 4545355845494105840}
   - component: {fileID: 4545355845494105842}
   - component: {fileID: 4545355845494105843}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +775,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4545355845494105841}
-  m_LocalRotation: {x: -0, y: -0, z: -0.06632341, w: 0.9977982}
+  m_LocalRotation: {x: -0, y: -0, z: 0.015310846, w: 0.9998828}
   m_LocalPosition: {x: -0.5300002, y: 10.96, z: 0}
   m_LocalScale: {x: 3.0724633, y: 0.92243, z: 1}
   m_Children: []
@@ -809,8 +809,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 1.0049587
-  m_PointLightOuterRadius: 1.524274
+  m_PointLightInnerRadius: 0.86578345
+  m_PointLightOuterRadius: 1.3478564
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -830,12 +830,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4545355845494105841}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9b0e550a8dc4274cba3528b51b5690a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 5260996050803640351}
   useOffset: 0
   lockX: 0
   lockY: 0
@@ -849,7 +849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4545355845646074995}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightRaycast (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -939,7 +939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4545355846849168309}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightRaycast (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,7 +969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4545355846886649680}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightRaycast (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1029,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4545355846928235280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightRaycast (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,9 +1067,9 @@ GameObject:
   - component: {fileID: 4545355844944370448}
   - component: {fileID: 4545355844944370451}
   - component: {fileID: 4545355844944370450}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Soul
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1083,7 +1083,7 @@ Transform:
   m_GameObject: {fileID: 6186970254234582842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.72, y: -7.1, z: 0}
-  m_LocalScale: {x: 0.3432638, y: 0.3432638, z: 0.3432638}
+  m_LocalScale: {x: 0.2942732, y: 0.2942732, z: 0.2942732}
   m_Children:
   - {fileID: 1724424548818863943}
   - {fileID: 136370805364062348}
@@ -1247,6 +1247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  playerLight: {fileID: 4545355845494105842}
 --- !u!114 &4545355844944370451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,7 +1308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2108214804748040387}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1337,7 +1338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 800172315889253932}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Back Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1367,7 +1368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5851412179887509834}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1400,7 @@ GameObject:
   - component: {fileID: 3564284426228365310}
   - component: {fileID: 8747037351481031471}
   - component: {fileID: 3838849489066419006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Layer 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1488,7 +1489,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5851412179887509834}
   m_Bounds:
-    m_Center: {x: 0.001240015, y: 0.0006890297, z: 0}
+    m_Center: {x: 0.001240015, y: 0.0006906986, z: 0}
     m_Extent: {x: 1.05624, y: 0.87569, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
