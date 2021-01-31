@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    public float suckSpeed = 0.5f;
+    public float suckSpeed = 10f;
     bool collided = false;
     Collider2D player;
+    public Transform targetPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +19,8 @@ public class Portal : MonoBehaviour
     void Update()
     {
         if(collided){
-
-            player.transform.position += new Vector3(0f, suckSpeed * Time.deltaTime, 0f);
-
+            player.GetComponent<Rigidbody2D>().gravityScale = 0;
+            player.transform.position = Vector2.MoveTowards(player.transform.position, targetPosition.position, suckSpeed * Time.deltaTime);
         }
     }
 
