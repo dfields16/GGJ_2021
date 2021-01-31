@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 209196007}
   - component: {fileID: 1425427058}
   - component: {fileID: 1007932694}
+  - component: {fileID: 1623824426}
   m_Layer: 12
   m_Name: Orb
   m_TagString: Orb
@@ -182,3 +183,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+--- !u!114 &1623824426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171496114355595902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae43022d34f834bbdae120fdeb443e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

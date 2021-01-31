@@ -108,21 +108,6 @@ public class AudioManager : MonoBehaviour
 		current.playerSource.Play();
 	}
 
-    public static void PlayCrouchFootstepAudio()
-    {
-		//If there is no current AudioManager or the player source is already playing
-		//a clip, exit 
-		if (current == null || current.playerSource.isPlaying)
-            return;
-
-		//Pick a random crouching footstep sound
-		int index = Random.Range(0, current.crouchStepClips.Length);
-		
-		//Set the footstep clip and tell the source to play
-		current.playerSource.clip = current.crouchStepClips[index];
-		current.playerSource.Play();
-	}
-
     public static void PlayJumpAudio()
     {
 		//If there is no current AudioManager, exit

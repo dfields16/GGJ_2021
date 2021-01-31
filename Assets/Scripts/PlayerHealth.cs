@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -37,6 +38,11 @@ public class PlayerHealth : MonoBehaviour
     public void LoseHealth(float health)
     {
         currentHealth -= health;
-        if (currentHealth <= 0) { /*Trigger end game*/ }
+        if (currentHealth <= 0) { SceneManager.LoadScene(2); }
+    }
+
+    public float GetPlayerHealth()
+    {
+        return currentHealth;
     }
 }
