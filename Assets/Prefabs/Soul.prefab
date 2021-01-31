@@ -740,6 +740,7 @@ MonoBehaviour:
   currLightTimer: 0
   hitDamage: 20
   knockbackForce: 50
+  hitCooldown: 0.8
   hitPts:
   - {fileID: 4545355844939543782}
   - {fileID: 4545355846886649680}
@@ -1252,6 +1253,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   playerLight: {fileID: 4545355845494105842}
+  gameMenu: {fileID: 7334190137464064383, guid: 4e3cd8d04b7635f4f91cc67b5a005303,
+    type: 3}
 --- !u!114 &4545355844944370451
 MonoBehaviour:
   m_ObjectHideFlags: 0
