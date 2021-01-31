@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Orb : MonoBehaviour
 {
+	[SerializeField] float healthValue = 50f;
 	bool following = false;
 	GameObject parent;
 
@@ -21,6 +22,6 @@ public class Orb : MonoBehaviour
 		following = true;
 		parent.GetComponent<PlayerMovement>().holdingOrb = true;
 		parent.GetComponent<PlayerMovement>().SetOrb(gameObject);
-
+		parent.GetComponent<PlayerHealth>().PickupHealth(healthValue);
 	}
 }
