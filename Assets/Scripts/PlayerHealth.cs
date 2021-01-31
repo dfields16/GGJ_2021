@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		if(!playerLight) playerLight = GetComponent<Light2D>();
         gameMenu = FindObjectOfType<GameMenu>();
         currentHealth = maxHealth;
     }
@@ -25,8 +26,8 @@ public class PlayerHealth : MonoBehaviour
     {
         playerLight.intensity = currentHealth / 100;
 
-        if (Input.GetKeyDown(KeyCode.R)) 
-        { 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             LoseHealth(25);
             Debug.Log(currentHealth);
         }
