@@ -25,8 +25,7 @@ public class Portal : MonoBehaviour
             player.GetComponent<Rigidbody2D>().gravityScale = 0;
             player.transform.position = Vector2.MoveTowards(player.transform.position, targetPosition.position, suckSpeed * Time.deltaTime);
             canvas.GetComponent<UIController>().FlashWhite(true);
-            // Invoke("LoadNextLevel", 3.0f);
-            LoadNextLevel();
+            Invoke("LoadNextLevel", 1.0f);
         }
     }
 
