@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class GoopEnemy : MonoBehaviour
+public class GoopEnemy : Enemy
 {
 	[HideInInspector] public GameObject player;
-	public bool inLight = false;
 	public Rigidbody2D rb;
 
 	public float jumpForce = 5f;
@@ -16,8 +15,6 @@ public class GoopEnemy : MonoBehaviour
 	[SerializeField] private float agroDistance = 8f;
 	private bool agro = false;
 	private bool isGrounded;
-
-	public float currLightTimer = 0;
 
 	[SerializeField] float hitDamage = 20f;
 	[SerializeField] float knockbackForce = 50f;
