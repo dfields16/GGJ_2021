@@ -73,7 +73,6 @@ public class BatController : Enemy
 	{
 		if (isBatTrigger && c.gameObject.tag == "Player")
 		{
-			Debug.Log(gameObject.name);
 			transform.parent.GetComponent<BatController>().agro = true;
 		}
 	}

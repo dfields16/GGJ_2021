@@ -72,6 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inLight: 0
   currLightTimer: 0
+  hitDamage: 20
+  knockbackForce: 50
   isBatTrigger: 1
   player: {fileID: 0}
   agro: 0
@@ -201,6 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inLight: 0
   currLightTimer: 0
+  hitDamage: 5
+  knockbackForce: 7
   isBatTrigger: 0
   player: {fileID: 0}
   agro: 0
