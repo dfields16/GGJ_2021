@@ -15,6 +15,7 @@ public class Orb : MonoBehaviour
     // Cutscene light stuff
 	[SerializeField] Light2D orbLight;
     bool needToGrow = false;
+    bool doneCinematic = false;
     float innerGoal = 3.88f;
     float outerGoal = 7.12f;
     float intensityGoal = 3.57f;
@@ -36,6 +37,7 @@ public class Orb : MonoBehaviour
         if (orbLight.pointLightInnerRadius >= innerGoal && orbLight.pointLightOuterRadius >= outerGoal && orbLight.intensity >= intensityGoal)
         {
             needToGrow = false;
+            doneCinematic = true;
         }
 	}
 
@@ -73,5 +75,10 @@ public class Orb : MonoBehaviour
         if (orbLight.pointLightInnerRadius > innerGoal) orbLight.pointLightInnerRadius = innerGoal;
         if (orbLight.pointLightOuterRadius > outerGoal) orbLight.pointLightOuterRadius = outerGoal;
         if (orbLight.intensity > intensityGoal) orbLight.intensity = intensityGoal;
+    }
+
+    public bool GetCinematicStatus()
+    {
+        return doneCinematic;
     }
 }

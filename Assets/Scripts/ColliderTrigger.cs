@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ColliderTrigger : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class ColliderTrigger : MonoBehaviour
         if (!tilemapCollider) tilemapCollider= FindObjectOfType<Collider2D>();
         if (!orb) orb = FindObjectOfType<Orb>();
         if (!movementScript) movementScript = FindObjectOfType<PlayerMovement>();
+    }
+
+    private void Update()
+    {
+        if (orb.GetCinematicStatus()) SceneManager.LoadScene(2);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,5 +37,6 @@ public class ColliderTrigger : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         movementScript.enabled = false;
     }
+
 }
 
