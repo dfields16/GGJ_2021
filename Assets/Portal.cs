@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Portal : MonoBehaviour
@@ -24,7 +25,13 @@ public class Portal : MonoBehaviour
             player.GetComponent<Rigidbody2D>().gravityScale = 0;
             player.transform.position = Vector2.MoveTowards(player.transform.position, targetPosition.position, suckSpeed * Time.deltaTime);
             canvas.GetComponent<UIController>().FlashWhite(true);
+            // Invoke("LoadNextLevel", 3.0f);
+            LoadNextLevel();
         }
+    }
+
+    void LoadNextLevel(){
+        SceneManager.LoadScene("Level2");
     }
 
     void OnTriggerEnter2D(Collider2D collider2D){
