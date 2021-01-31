@@ -39,4 +39,9 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= health;
         if (currentHealth <= 0) { /*Trigger end game*/ }
     }
+
+    public float GetPlayerHealth()
+    {
+        return currentHealth;
+    }
 }
